@@ -5,6 +5,24 @@
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
   </head>
   <body>
+    <script>
+    AFRAME.registerComponent('change-color', {
+  schema: {
+    color: {default: 'orange'}
+  },
+  init: function(){
+    var data = this.data;
+    this.el.addEventListener('click', function(){
+      if(this.getAttribute('color')==='red'){
+        this.setAttribute('color', 'orange');
+      }else{
+        this.setAttribute('color', 'red');
+      }
+    })
+  }
+});
+    </script>
+
     <a-scene>
 
       <a-assets>
