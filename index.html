@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+
+      <a-assets>
+        <a-mixin id="checkpoint"></a-mixin>
+        <a-mixin id="checkpoint-hovered" color="blue"></a-mixin>
+        <img id="floor" src="https://3.bp.blogspot.com/-sP5XqI9rpF4/WxxcIkp4i9I/AAAAAAAAH8U/oo9E1M8q61Us6B7FGIJ4uNdjtuW7vwMBwCLcBGAs/s1600/parquet.jpg">
+        <img id="cement" src="https://3.bp.blogspot.com/-5ybvizjFy8o/WxxeXsBhW2I/AAAAAAAAH8s/UUTgRZrpnYkJCHsXqxz-iZ39MyelfdSigCLcBGAs/s1600/cement.jpg">
+        <img id="wall" src="https://3.bp.blogspot.com/-tlf6aH6nXdE/Wxx3MZKBRJI/AAAAAAAAH_E/P-zKGllVq0cd2tpP1Wxx5MRmbkpQ7cDZACLcBGAs/s1600/wall3.png">
+        <img id="tile" src="https://1.bp.blogspot.com/-Uff-SIWG3YM/Wxx3MMFNewI/AAAAAAAAH-8/sKDlKJh8wCMpO0XJ3MWdbcz6OcqjgnJ6QCLcBGAs/s1600/tile.jpg">
+        <img id="grass" src="https://3.bp.blogspot.com/-U8YUh6r52sA/Wxx3LJNdudI/AAAAAAAAH-w/zW2RMyegeRIFB7SHEUcwpnsgiH0pLYyFwCLcBGAs/s1600/grass4.jpg">
+        <img id="railing" src="https://3.bp.blogspot.com/-0dVIKnAWlE4/Wxx3MShMbNI/AAAAAAAAH_A/6-FjhHvfj0s1CqIYH47N5fujQ5tj6EmMACLcBGAs/s1600/railing.png">
+        <img id="flowers" src="https://4.bp.blogspot.com/-nhaiOq9_dVY/Wxx3MEqjvXI/AAAAAAAAH-4/-PrLzG8GIYgpIrj1ypyIPD4N5tH2pDYHQCLcBGAs/s1600/flowers.png">
+        <img id="frame" src="https://1.bp.blogspot.com/-QQ-7gNPQiO8/Wxyg6T4omNI/AAAAAAAAH_0/pud6GYkFHyw__IyJng906Ekt_Tk9mf0nQCLcBGAs/s1600/frame.jpg">
+        <img id="frameH" src="https://3.bp.blogspot.com/-yM-9sq1fWh4/Wxy1ta4jxeI/AAAAAAAAIAE/6Ct38dhTnggF9wss0Qj6D4pXpLFF2w2nwCLcBGAs/s1600/frameH.jpg">
+
+        <!--1 chairs-->
+        <img id="photo1" src="https://4.bp.blogspot.com/-gb60evVYQmo/WxxoQN9H71I/AAAAAAAAH9M/PwvP6dzMbH4jAhRdvOOYDDZreh0iEa2YACLcBGAs/s1600/5.png">
+        <!--2 conformity-->
+        <img id="photo2" src="https://1.bp.blogspot.com/-8u9l3K-DalI/Wxxt56RMuXI/AAAAAAAAH98/MOxn6HGm1-0kV7ULhuWAJL53zXQXpRg-QCLcBGAs/s1600/15.png">
+        <!--3 rock circle-->
+        <img id="photo3" src="https://3.bp.blogspot.com/-Wh78LnHPgV4/Wxxt8G1YFMI/AAAAAAAAH-I/930RpUw8WZgB8SqznceIFuG7gxp_7f1LQCLcBGAs/s1600/9.png">
+        <!--4 box-->
+        <img id="photo4" src="https://4.bp.blogspot.com/-WrgyjtaMweY/WxxoOwTRUrI/AAAAAAAAH9E/D1S-0BHK3HUddwd4PmNKDH8CXuUUbDaIACLcBGAs/s1600/4.png">
+        <img id="photo6" src="https://1.bp.blogspot.com/-PVK5CkFk908/Wxxt3dBw_WI/AAAAAAAAH90/mMqHwdvfY5gndwgbWREk9yuwXF7c64QLQCLcBGAs/s1600/13.png">
+        <img id="photo5" src="https://1.bp.blogspot.com/-VGqWNx2Z2FQ/Wxxt8jwis-I/AAAAAAAAH-M/UoyKVYS3HlcB93c4epjSfs7CeZTx3b7QQCLcBGAs/s1600/8.png">
+        <img id="photo7" src="https://3.bp.blogspot.com/-l7mO9OBnRk4/WxxoNzf9zRI/AAAAAAAAH9A/u3RkJEfCfI4Bcvhc3iEQwq9IjhC3Q8iMgCLcBGAs/s1600/1.png">
+        <!--8 sphere-->
+        <img id="photo8" src="https://1.bp.blogspot.com/-YqVfPk2EA6s/Wxxt7Zog0YI/AAAAAAAAH-E/WAq9YHlJ7Mge0uB7O6dIurzKMF_F0mgPACLcBGAs/s1600/16.png">
+        <!--9 road-->
+        <img id="photo9" src="https://2.bp.blogspot.com/-Rh5zgoOnWcc/Wxxt6NTcteI/AAAAAAAAH-A/YjPhnWKAbRkq9fUuGt7_o_rqIQmq0l0lACLcBGAs/s1600/14.png">
+        <!--10 circle road-->
+        <img id="photo10" src="https://2.bp.blogspot.com/-fEFnUCYKjOY/Wxxt3t60irI/AAAAAAAAH94/VjIqpnJilD46ZKQ5R0aI6KYS3zDPBiZZQCLcBGAs/s1600/11.png">
+        <!--11 gas station-->
+        <img id="photo11" src="https://3.bp.blogspot.com/-8s2GP8rYMoQ/WxxoRF3ul-I/AAAAAAAAH9Q/QEfcR-HueT4nDGJUZY8L8k1rSGumGI4tgCLcBGAs/s1600/7.png">
+        <!--12 cross-->
+        <img id="photo12" src="https://4.bp.blogspot.com/-YfpT5e_hw_U/WxxoNaRt65I/AAAAAAAAH84/ulNGxO1V1AsauMoce6ynSrt2XEGm8UZzwCLcBGAs/s1600/2.png">
+        <!--13 church-->
+        <img id="photo13" src="https://1.bp.blogspot.com/-h9nIdD6v9GA/WxxoPhgA5ZI/AAAAAAAAH9I/VWKesAMCYX8ToxqUsFKTtzGPxZQ2fgWFQCLcBGAs/s1600/6.png">
+        <!--14 cow-->
+        <img id="photo14" src="https://4.bp.blogspot.com/-1eLW4PL3TQw/WxxoNj5l06I/AAAAAAAAH88/dthHxYtx3FEew1WPdCbTo6hxC7A7_UwpgCLcBGAs/s1600/3.png">
+
+      </a-assets>
+
+      <!-- Player -->
+            <a-entity id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
+              <a-entity camera
+                        position="0 1.6 0"
+                        look-controls="pointerLockEnabled: true">
+                <a-entity cursor
+                          position="0 0 -1"
+                          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
+                          material="color: #CCC; shader: flat;"></a-entity>
+              </a-entity>
+            </a-entity>
+
+            <!-- Checkpoints -->
+            <a-entity position="1 0 1">
+              <!--<a-cylinder checkpoint radius=".5" height="0.1" position="0 0 -5.2" color="red"></a-cylinder>-->
+              <a-cylinder checkpoint radius=".5" height="0.1" position="-1 -.2 0" color="red"></a-cylinder>
+              <!--<a-cylinder checkpoint radius=".5" height="0.1" position="2 -.2 .4" color="red"></a-cylinder>
+              <a-cylinder checkpoint radius=".5" height="0.1" position="-4 -.2 -.2" color="orange"></a-cylinder>-->
+              <a-cylinder checkpoint radius=".5" height="0.1" position="-3.5 -.2 3" color="orange"></a-cylinder>
+              <a-cylinder checkpoint radius=".5" height="0.1" position="-4 -.2 9" color="yellow"></a-cylinder>
+              <a-cylinder checkpoint radius=".5" height="0.1" position="-.1 -.2 4" color="green"></a-cylinder>
+              <a-cylinder checkpoint radius=".5" height="0.1" position="9 -.2 3.6" color="#42d9f4"></a-cylinder>
+              <!--<a-cylinder checkpoint radius=".5" height="0.1" position="11 -.2 3.6" color="lightblue"></a-cylinder>-->
+              <a-cylinder checkpoint radius=".5" height="0.1" position="9.5 -.2 -.5" color="blue"></a-cylinder>
+              <!--<a-cylinder checkpoint radius=".5" height="0.1" position="7 -.2 0" color="purple"></a-cylinder>-->
+              <a-cylinder checkpoint radius=".5" height="0.1" position="11 -.2 -5" color="magenta"></a-cylinder>
+              <a-cylinder checkpoint radius=".5" height="0.1" position="8.5 -.2 -5" color="pink"></a-cylinder>
+              <a-cylinder checkpoint radius=".5" height="0.1" position="5.5 -.2 -5" color="gold"></a-cylinder>
+              <a-cylinder checkpoint radius=".5" height="0.1" position="2.5 -.2 -5" color="brown"></a-cylinder>
+              <a-cylinder checkpoint radius=".5" height="0.1" position="-4 -.2 -5.5" color="navy"></a-cylinder>
+              <!--<a-cylinder checkpoint radius="2" height="0.1" position="-5 -.2 -35" color="lime"></a-cylinder>-->
+
+          </a-entity>
+
+      <a-text position="-1 2 -1" width="4.5" value="Roadside Attraction:" color="black"></a-text>
+      <a-text position="-1 1.75 -1" width="4.5" value="Photography by John Uhr" color="black"></a-text>
+      <a-text position="-1 1.4 -1" width="2" value="A collection of quirky images from travels around the southwestern U.S." color="black"></a-text>
+      <a-text position="-1 1.1 -1" width="2" value="Virtual reality gallery by Julia Uhr" color="black"></a-text>
+
+      <!--front wall-->
+      <a-box position="0 2 -2" scale="10 5 1" src="#wall"></a-box>
+      <!--front front wall-->
+      <a-box position="7 2 -7" scale="17 5 1" src="#wall"></a-box>
+      <!--left wall-->
+      <a-box position="-5.5 2 2.5" scale="1 5 21" src="#wall"></a-box>
+      <!--right wall-->
+      <a-box position="5.5 2 1" scale="1 5 7" src="#wall"></a-box>
+      <!--right right wall-->
+      <a-box position="15 2 0" scale="1 5 15" src="#wall"></a-box>
+      <!--back wall-->
+      <a-box position="8 2 7.5" scale="20 5 1" src="#wall"></a-box>
+      <!--back fence-->
+      <a-box position="0 .5 13" scale="10 2 0" material="src:#railing; repeat:2; transparent:true"></a-box>
+      <a-box position="5 .5 10.5" scale="0 2 5" material="src:#railing; transparent:true"></a-box>
+      <!--sphere-->
+      <a-box position="3 .5 10" scale="1 3 1" src="#wall"></a-box>
+      <a-sphere position="3 3 10" width="2" src="#flowers" rotation="0 -90"></a-sphere>
+      <!--ceiling-->
+      <a-box material="src:#tile;repeat:27 20" position="5 4.5 2" scale="27 .1 20"></a-box>
+      <!--floor-->
+      <a-box material="src:#cement;repeat:2 2" position="5 -.5 .3" scale="20 .3 14.7" ></a-box>
+      <!--ground-->
+      <a-plane material="src:#grass"color="#6f8448" rotation="-90 0 0" color="#997a00" position="8 -.5 3" width="60" height="60"></a-plane>
+
+      <!--photo 1 chairs-->
+      <a-box position="-5 2 1" scale=".2 3.3 2.8" src="#frame"></a-box>
+      <a-plane src="#photo1" rotation="0 90 0" position="-4.89 2 1" width="2.5" height="3" ></a-plane>
+      <!--photo 2 conformity-->
+      <a-box position="5 2 1.5" scale=".2 3.3 2.3" src="#frame"></a-box>
+      <a-plane src="#photo2" rotation="180 90 180" position="4.89 2 1.5" width="2" height="3" ></a-plane>
+      <!--photo 3 rock circle-->
+      <a-box position="-5 2 4.3" scale=".2 2.3 2.3" src="#frame"></a-box>
+      <a-plane src="#photo3" rotation="0 90 0" position="-4.89 2 4.3" width="2" height="2" ></a-plane>
+
+      <!--photo 4 box-->
+      <a-box position="14.5 2 4.5" scale=".2 2.3 2.3" src="#frame"></a-box>
+      <a-plane src="#photo4" rotation="180 90 180" position="14.38 2 4.5" width="2" height="2" ></a-plane>
+      <!--photo 5-->
+      <a-box position="14.5 2 0.25" scale=".2 2.83 4.8" src="#frameH"></a-box>
+      <a-plane src="#photo5" rotation="180 90 180" position="14.38 2 0.25" width="4.4" height="2.5" ></a-plane>
+      <!--photo 6-->
+      <a-box position="14.5 2 -4" scale=".2 2.3 2.3" src="#frame"></a-box>
+      <a-plane src="#photo6" rotation="180 90 180" position="14.38 2 -4" width="2" height="2" ></a-plane>
+
+      <!--photo 7 puddle-->
+      <a-box position="6 2 1" scale=".2 3.3 4.2" src="#frameH"></a-box>
+      <a-plane src="#photo7" rotation="0 90 0" position="6.11 2 1" width="4" height="3" ></a-plane>
+
+      <!--photo 11 ?-->
+      <a-box position="3.5 2 -6.5" scale="2.3 1.8 .2" src="#frameH"></a-box>
+      <a-plane src="#photo11" rotation="0 0 0" position="3.5 2 -6.39" width="2" height="1.5" ></a-plane>
+      <!--photo 8 sphere-->
+      <a-box position="9.5 2 -6.5" scale="2.3 1.8 .2" src="#frameH"></a-box>
+      <a-plane src="#photo8" rotation="0 0 0" position="9.5 2 -6.39" width="2" height="1.5" ></a-plane>
+      <!--photo 9 road-->
+      <a-box position="6.5 2 -6.5" scale="2.3 1.8 .2" src="#frameH"></a-box>
+      <a-plane src="#photo9" rotation="0 0 0" position="6.5 2 -6.39" width="2" height="1.5" ></a-plane>
+      <!--photo 10 sphere-->
+      <a-box position="12.5 2 -6.5" scale="2.3 1.8 .2" src="#frameH"></a-box>
+      <a-plane src="#photo10" rotation="0 0 0" position="12.5 2 -6.39" width="2" height="1.5" ></a-plane>
+
+      <!--photo 12 cross-->
+      <a-box position="-5 2 -4.5" scale=".2 1.4 1" src="#frame"></a-box>
+      <a-plane src="#photo12" rotation="0 90 0" position="-4.89 2 -4.5" width=".7" height="1.1" ></a-plane>
+
+      <!--photo 13 church-->
+      <a-box position="10 2 7" scale="2.3 3.8 .2" src="#frame"></a-box>
+      <a-plane src="#photo13" rotation="0 180 0" position="10 2 6.89" width="2" height="3.5" ></a-plane>
+      <!--photo 14 church-->
+      <a-box position="1 2 7" scale="2.3 3.8 .2" src="#frame"></a-box>
+      <a-plane src="#photo14" rotation="0 180 0" position="1 2 6.89" width="2" height="3.5" ></a-plane>
+
+
+      <a-sky color="black"></a-sky><!--"#ccfcfb"-->
+
+
+
+
+
+    </a-scene>
+  </body>
+</html>
